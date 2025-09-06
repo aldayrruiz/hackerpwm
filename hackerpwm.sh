@@ -152,18 +152,6 @@ chmod +x ~/.config/polybar/forest/scripts/target.sh
 chmod +x ~/.config/polybar/forest/scripts/screenshot.sh
 
 
-# Locale to Spanish
-echo "locales locales/default_environment_locale select es_ES.UTF-8" | sudo debconf-set-selections
-echo "locales locales/locales_to_be_generated multiselect es_ES.UTF-8 UTF-8" | sudo debconf-set-selections
-sudo dpkg-reconfigure --frontend noninteractive locales
-
-# Keyboard spanish
-echo "keyboard-configuration keyboard-configuration/layoutcode string es" | sudo debconf-set-selections
-echo "keyboard-configuration keyboard-configuration/modelcode string pc105" | sudo debconf-set-selections
-echo "keyboard-configuration keyboard-configuration/variantcode string" | sudo debconf-set-selections
-echo "keyboard-configuration keyboard-configuration/optionscode string" | sudo debconf-set-selections
-sudo dpkg-reconfigure --frontend noninteractive keyboard-configuration
-sudo service keyboard-setup restart
 
 # Select rofi theme
 #rofi-theme-selector

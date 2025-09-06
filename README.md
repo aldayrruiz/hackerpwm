@@ -5,14 +5,15 @@ Deploy the best environment for Kali Linux.
 
 ## Usage
 - You can watch a video tutorial ([CLICK HERE](https://youtu.be/oVgWy5Z9Owc))
-- The use of a new/clean Kali Linux 2023 installation is recommended.
-- Tested on Kali Linux 2023 with VMware, VirtualBox and bare metal.
+- The use of a new/clean Kali Linux 2025 installation is recommended.
+- Tested on Kali Linux 2025 with VMware, VirtualBox and bare metal.
 
 1. clone repo `git clone https://github.com/thegoodhackertv/hackerpwm.git`
 2. Change directory `cd hackerpwm`
 3. Run script `./hackerpwm.sh`
 4. **Reboot** and switch to bspwm in the login screen.
-5. Enjoy!
+5. Run script `./postinstall.sh` to select your keyboard.
+6. Enjoy!
 
 Wallpaper is taken from ~/Wallpapers/wallpaper.*
 
@@ -23,7 +24,7 @@ Wallpaper is taken from ~/Wallpapers/wallpaper.*
 - Rmux + oh my tmux
 - lsd
 - Python + pip + bpython
-- Neofetch
+- fastfetch (replacing neofetch)
 - Batcat
 - Scrot
 - feh
