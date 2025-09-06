@@ -8,6 +8,8 @@ Deploy the best environment for Kali Linux.
 - The use of a new/clean Kali Linux 2025 installation is recommended.
 - Tested on Kali Linux 2025 with VMware, VirtualBox and bare metal.
 
+> If Vmware is being used, you must click on upgrade virtual machine before power on. Otherwise, Bspwm crash with black screen.
+
 1. clone repo `git clone https://github.com/thegoodhackertv/hackerpwm.git`
 2. Change directory `cd hackerpwm`
 3. Run script `./hackerpwm.sh`
