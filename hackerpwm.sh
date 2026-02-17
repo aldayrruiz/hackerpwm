@@ -33,7 +33,7 @@ RPATH=`pwd`
  sudo apt update && sudo apt -y full-upgrade
 
 # install packages 
-sudo apt install -y git vim feh scrot scrub zsh rofi xclip xsel locate neofetch wmname acpi bspwm sxhkd \
+sudo apt install -y git vim feh scrot scrub zsh rofi xclip xsel locate fastfetch wmname acpi bspwm sxhkd unison \
 imagemagick ranger kitty tmux python3-pip font-manager lsd bpython open-vm-tools-desktop open-vm-tools # snapd
 
 # install environment dependencies
@@ -150,6 +150,8 @@ chmod +x ~/.config/bspwm/scripts/bspwm_resize
 chmod +x ~/.config/polybar/launch.sh
 chmod +x ~/.config/polybar/forest/scripts/target.sh
 chmod +x ~/.config/polybar/forest/scripts/screenshot.sh
+
+
 
 # Select rofi theme
 #rofi-theme-selector

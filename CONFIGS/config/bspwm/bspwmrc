@@ -33,4 +33,6 @@ bspc config focus_follows_pointer true
 picom &
 bspc config border_width 0
 
+~/.config/polybar/watch_resolution.sh &
+
 xsetroot -cursor_name left_ptr &
