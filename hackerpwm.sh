@@ -97,7 +97,6 @@ chmod +x ~/.config/bspwm/scripts/bspwm_resize
 chmod +x ~/.config/polybar/launch.sh
 chmod +x ~/.config/polybar/forest/scripts/target.sh
 chmod +x ~/.config/polybar/forest/scripts/screenshot.sh
-chmod +x ~/.config/polybar/watch_resolution.sh
 
 rm -rf $RPATH
 sudo apt autoremove -y
