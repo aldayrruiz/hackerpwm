@@ -30,16 +30,15 @@ sleep 4
 RPATH=`pwd`
 
 # update and upgrade all
+echo "Upgrading system..."
 sudo apt update && sudo apt -y full-upgrade
 
-# install packages 
-sudo apt install -y git vim feh scrot scrub zsh rofi xclip xsel locate fastfetch wmname acpi bspwm sxhkd unison \
-imagemagick ranger kitty tmux python3-pip font-manager lsd bpython open-vm-tools-desktop open-vm-tools cmatrix \
-duf fzf polybar picom bat neovim
+echo "Installing dependencies..."
+sudo apt install git vim feh scrot scrub zsh rofi xclip xsel locate fastfetch wmname acpi cmatrix
+sudo apt install bspwm sxhkd polybar picom
+sudo apt install unison imagemagick font-manager ranger kitty tmux lsd bat neovim duf fzf 
 
-# install environment dependencies
-sudo apt install -y build-essential libxcb-util0-dev libxcb-ewmh-dev libxcb-randr0-dev \
-libxcb-icccm4-dev libxcb-keysyms1-dev libxcb-xinerama0-dev libasound2-dev libxcb-xtest0-dev libxcb-shape0-dev # (xcb removed)
+exit 0
 
 # install fonts
 mkdir /tmp/fonts
