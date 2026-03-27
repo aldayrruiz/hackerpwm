@@ -20,12 +20,10 @@ echo "
 ██║  ██║██║  ██║╚██████╗██║  ██╗███████╗██║  ██║██║     ╚███╔███╔╝██║ ╚═╝ ██║
 ╚═╝  ╚═╝╚═╝  ╚═╝ ╚═════╝╚═╝  ╚═╝╚══════╝╚═╝  ╚═╝╚═╝      ╚══╝╚══╝ ╚═╝     ╚═╝
 "
-sleep 2
 echo -e "\thackerpwm - Hacker environment automation script."
 echo -e "\t\tAldayr Ruiz (Aka. xSmaky)"
-sleep 3
 echo -e "\nInstallation will begin soon..\n"
-sleep 4
+sleep 5
 
 RPATH=`pwd`
 
@@ -34,11 +32,9 @@ echo "Upgrading system..."
 sudo apt update && sudo apt -y full-upgrade
 
 echo "Installing dependencies..."
-sudo apt install git vim feh scrot scrub zsh rofi xclip xsel locate fastfetch wmname acpi cmatrix
-sudo apt install bspwm sxhkd polybar picom
-sudo apt install unison imagemagick font-manager ranger kitty tmux lsd bat neovim duf fzf 
-
-exit 0
+sudo apt install -y git vim feh scrot scrub zsh rofi xclip xsel locate fastfetch wmname acpi cmatrix
+sudo apt install -y bspwm sxhkd polybar picom
+sudo apt install -y unison imagemagick font-manager ranger kitty tmux lsd bat neovim duf fzf 
 
 # install fonts
 mkdir /tmp/fonts
