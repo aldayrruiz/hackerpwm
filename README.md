@@ -1,7 +1,7 @@
 # hackerpwm
 Deploy the best environment for Kali Linux.
 
-![GIF](https://raw.githubusercontent.com/thegoodhackertv/hackerpwm/main/env.gif)
+![GIF](desktop.png)
 
 ## Usage
 - You can watch a video tutorial ([CLICK HERE](https://youtu.be/oVgWy5Z9Owc))
@@ -10,7 +10,7 @@ Deploy the best environment for Kali Linux.
 
 > If Vmware is being used, you must click on upgrade virtual machine before power on. Otherwise, Bspwm crash with black screen.
 
-1. clone repo `git clone https://github.com/thegoodhackertv/hackerpwm.git`
+1. clone repo `git clone https://github.com/aldayrruiz/hackerpwm.git`
 2. Change directory `cd hackerpwm`
 3. Run script `./hackerpwm.sh`
 4. **Reboot** and switch to bspwm in the login screen.
@@ -31,17 +31,14 @@ Wallpaper is taken from ~/Wallpapers/wallpaper.*
 - Scrot
 - feh
 - oh my zsh + plugins
-- Powerlevel10k
 - Rofi
 - Bspwm
 - Polybar
 - Sxhkd
 - Picom
 - Neovim
+- Cmatrix
+- Duf
 
 ## Credits
-Big inspiration taken from xJackSx [repo](https://github.com/xJackSx/BSPWMparrot).
-
-## Support
-[<img width=300 alt="patreon" src="https://pbs.twimg.com/media/DC4gjLRUMAAyQ92?format=jpg">](https://www.patreon.com/thegoodhacker)
-[<img width=250 alt="buymeacoffe" src="https://cdn.buymeacoffee.com/buttons/v2/default-orange.png">](https://www.buymeacoffee.com/thegoodhacker)
+* This repo is a fork of [repo](https://github.com/thegoodhackertv/hackerpwm), thank you ❤️.

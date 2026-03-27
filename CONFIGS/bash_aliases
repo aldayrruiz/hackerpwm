@@ -1,0 +1,10 @@
+#!/bin/bash
+
+alias htbm='sudo openvpn /mnt/hgfs/shared/vpns/lab_xsmaky.ovpn'
+alias htba='sudo openvpn /mnt/hgfs/shared/vpns/competitive_xsmaky.ovpn'
+alias ls='lsd'
+alias cat='batcat'
+alias vi='nvim'
+alias vim='nvim'
+alias catn='/usr/bin/cat'
+alias df='duf'

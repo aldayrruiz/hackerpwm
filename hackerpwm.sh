@@ -22,7 +22,7 @@ echo "
 "
 sleep 2
 echo -e "\thackerpwm - Hacker environment automation script."
-echo -e "\t\tAndrés J. Moreno (Aka. TheGoodHacker)"
+echo -e "\t\tAldayr Ruiz (Aka. xSmaky)"
 sleep 3
 echo -e "\nInstallation will begin soon..\n"
 sleep 4
@@ -34,7 +34,8 @@ RPATH=`pwd`
 
 # install packages 
 sudo apt install -y git vim feh scrot scrub zsh rofi xclip xsel locate fastfetch wmname acpi bspwm sxhkd unison \
-imagemagick ranger kitty tmux python3-pip font-manager lsd bpython open-vm-tools-desktop open-vm-tools # snapd
+imagemagick ranger kitty tmux python3-pip font-manager lsd bpython open-vm-tools-desktop open-vm-tools cmatrix \
+duf
 
 # install environment dependencies
 sudo apt install -y build-essential libxcb-util0-dev libxcb-ewmh-dev libxcb-randr0-dev \
@@ -62,17 +63,13 @@ font-manager -i /tmp/fonts/*.ttf
 rm -rf ~/.oh-my-zsh
 yes | sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 
-# install powerlevel10k
-git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k
-rm -f ~/.p10k.zsh
-cp -v $RPATH/CONFIGS/p10k.zsh ~/.p10k.zsh
-
 # install zsh plugins
 git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
 git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
 rm -f ~/.zshrc
 # install zsh-autocomplete?
 cp -v $RPATH/CONFIGS/zshrc ~/.zshrc
+cp -v $RPATH/CONFIGS/bash_aliases ~/.bash_aliases
 
 # install fzf
 git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
