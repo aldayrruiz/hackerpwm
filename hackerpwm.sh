@@ -79,7 +79,7 @@ sudo timedatectl set-timezone "Europe/Madrid"
 mkdir ~/screenshots
 # copy all config files
 cp -rv $RPATH/configs/.config/* ~/.config/
-cp -rv $RPATH/configs/home/* ~/
+cp -rv $RPATH/configs/home/.* ~/
 
 # copy scripts
 cp -rv $RPATH/scripts/* ~/.config/polybar/forest/scripts/
