@@ -35,81 +35,47 @@ sudo apt update && sudo apt -y full-upgrade
 # install packages 
 sudo apt install -y git vim feh scrot scrub zsh rofi xclip xsel locate fastfetch wmname acpi bspwm sxhkd unison \
 imagemagick ranger kitty tmux python3-pip font-manager lsd bpython open-vm-tools-desktop open-vm-tools cmatrix \
-duf
+duf fzf polybar picom bat neovim
 
 # install environment dependencies
 sudo apt install -y build-essential libxcb-util0-dev libxcb-ewmh-dev libxcb-randr0-dev \
 libxcb-icccm4-dev libxcb-keysyms1-dev libxcb-xinerama0-dev libasound2-dev libxcb-xtest0-dev libxcb-shape0-dev # (xcb removed)
 
-# install polybar requirements
-sudo apt install -y cmake cmake-data pkg-config python3-sphinx libcairo2-dev libxcb1-dev libxcb-util0-dev \
-libxcb-randr0-dev libxcb-composite0-dev python3-xcbgen xcb-proto libxcb-image0-dev libxcb-ewmh-dev \
-libxcb-icccm4-dev libxcb-xkb-dev libxcb-xrm-dev libxcb-cursor-dev libasound2-dev libpulse-dev libjsoncpp-dev \
-libmpdclient-dev libuv1-dev libnl-genl-3-dev
-
 # install fonts
 mkdir /tmp/fonts
-wget https://github.com/ryanoasis/nerd-fonts/releases/download/v3.0.2/Hack.zip -O /tmp/fonts/Hack.zip
+wget https://github.com/ryanoasis/nerd-fonts/releases/download/v3.4.0/Hack.zip -O /tmp/fonts/Hack.zip
 unzip /tmp/fonts/Hack.zip -d /tmp/fonts
 font-manager -i /tmp/fonts/*.ttf
 
 # install ohmyzsh
-rm -rf ~/.oh-my-zsh
-yes | sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+#rm -rf ~/.oh-my-zsh
+#yes | sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 
-# install zsh plugins
-git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
-git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
-rm -f ~/.zshrc
+## install zsh plugins
+#git clone https://github.com/zsh-users/zsh-autosuggestions.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
+#git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
+#rm -f ~/.zshrc
+
 # install zsh-autocomplete?
 cp -v $RPATH/CONFIGS/zshrc ~/.zshrc
 cp -v $RPATH/CONFIGS/bash_aliases ~/.bash_aliases
 
-# install fzf
-git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
-yes | ~/.fzf/install
-
 # .tmux
+echo "Installing tmux configuration..."
 rm -rf ~/.tmux
 git clone https://github.com/gpakosz/.tmux.git ~/.tmux
 ln -s -f ~/.tmux/.tmux.conf ~/
 cp -v $RPATH/CONFIGS/tmux.conf.local ~/.tmux.conf.local
 
-# nvim
-#wget https://github.com/neovim/neovim/releases/download/stable/nvim-linux64.tar.gz -O /tmp/nvim-linux64.tar.gz
-#sudo tar xzvf /tmp/nvim-linux64.tar.gz --directory=/opt
-#sudo ln -s /opt/nvim-linux64/bin/nvim /usr/bin/nvim
-#sudo rm -f /opt/nvim-linux64.tar.gz
 
-#nvchad - needs work. Block cursor and user interaction
-# git clone https://github.com/NvChad/NvChad ~/.config/nvim --depth 1 && nvim
+# nvchad - needs work. Block cursor and user interaction
+git clone https://github.com/NvChad/starter ~/.config/nvim && nvim
 
-# install kitty terminal
-#cat $RPATH/kitty-installer.sh | sh /dev/stdin
-# ~/.local/kitty.app/bin/kitty
-
-# batcat
-wget https://github.com/sharkdp/bat/releases/download/v0.24.0/bat_0.24.0_amd64.deb -O /tmp/bat.deb
-sudo dpkg -i /tmp/bat.deb
-
-# Clone polybar & picom repos
-mkdir ~/github
-git clone --recursive https://github.com/polybar/polybar ~/github/polybar
-git clone https://github.com/ibhagwan/picom.git ~/github/picom
-
-# install polybar
-cd ~/github/polybar
-mkdir build
-cd build
-cmake ..
-make -j$(nproc)
-sudo make install
-
-# install polybar themes
-git clone --depth=1 https://github.com/adi1090x/polybar-themes.git ~/github/polybar-themes
-chmod +x ~/github/polybar-themes/setup.sh
-cd ~/github/polybar-themes
-./setup.sh
+# Install polybar themes
+#git clone --depth=1 https://github.com/adi1090x/polybar-themes.git ~/github/polybar-themes
+#chmod +x ~/github/polybar-themes/setup.sh
+#cd ~/github/polybar-themes
+#./setup.sh
 
 # Change timezone
 # To list timezones run: timedatectl list-timezones
@@ -135,23 +101,7 @@ chmod +x ~/.config/polybar/launch.sh
 chmod +x ~/.config/polybar/forest/scripts/target.sh
 chmod +x ~/.config/polybar/forest/scripts/screenshot.sh
 
-exit 0
 
-# Install picom dependencies
-sudo apt install -y libconfig-dev libdbus-1-dev libegl-dev libev-dev libgl-dev libepoxy-dev libpcre2-dev \
-libpixman-1-dev libx11-xcb-dev libxcb1-dev libxcb-composite0-dev libxcb-damage0-dev libxcb-glx0-dev libxcb-image0-dev \
-libxcb-present-dev libxcb-randr0-dev libxcb-render0-dev libxcb-render-util0-dev libxcb-shape0-dev libxcb-util-dev \
-libxcb-xfixes0-dev meson ninja-build uthash-dev
-
-# install picom
-cd ~/github/picom
-git submodule update --init --recursive
-meson setup --buildtype=release build
-ninja -C build
-sudo ninja -C build install
-
-# Clean files
-rm -rf ~/github
 rm -rf $RPATH
 sudo apt autoremove -y
 
