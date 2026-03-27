@@ -68,7 +68,7 @@ cp -v $RPATH/CONFIGS/tmux.conf.local ~/.tmux.conf.local
 
 
 # nvchad - needs work. Block cursor and user interaction
-git clone https://github.com/NvChad/starter ~/.config/nvim && nvim
+#git clone https://github.com/NvChad/starter ~/.config/nvim && nvim
 
 # Install polybar themes
 #git clone --depth=1 https://github.com/adi1090x/polybar-themes.git ~/github/polybar-themes
@@ -96,7 +96,7 @@ cp -rv $RPATH/WALLPAPERS/* ~/Wallpapers/
 # Set execution perms
 chmod +x ~/.config/bspwm/bspwmrc
 chmod +x ~/.config/bspwm/scripts/bspwm_resize
-chmod +x ~/.config/polybar/launch.sh
+chmod +x ~/.config/polybar/forest/launch.sh
 chmod +x ~/.config/polybar/forest/scripts/target.sh
 chmod +x ~/.config/polybar/forest/scripts/screenshot.sh
 
