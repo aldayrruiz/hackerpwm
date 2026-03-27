@@ -37,6 +37,7 @@ sudo apt install -y bspwm sxhkd polybar picom
 sudo apt install -y unison imagemagick font-manager ranger kitty tmux lsd bat neovim duf fzf 
 
 # install fonts
+echo "Installing Hack font..."
 mkdir /tmp/fonts
 wget https://github.com/ryanoasis/nerd-fonts/releases/download/v3.4.0/Hack.zip -O /tmp/fonts/Hack.zip
 unzip /tmp/fonts/Hack.zip -d /tmp/fonts
@@ -51,7 +52,7 @@ font-manager -i /tmp/fonts/*.ttf
 #git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
 #rm -f ~/.zshrc
 
-# install zsh-autocomplete?
+echo "Installing zshrc and bash aliases..."
 cp -v $RPATH/configs/.zshrc ~/.zshrc
 cp -v $RPATH/configs/.bash_aliases ~/.bash_aliases
 
@@ -67,6 +68,7 @@ cp -v $RPATH/configs/.tmux.conf.local ~/.tmux.conf.local
 # git clone https://github.com/NvChad/starter ~/.config/nvim && nvim
 
 # Install polybar themes
+echo "Installing polybar themes..."
 git clone --depth=1 https://github.com/adi1090x/polybar-themes.git ~/github/polybar-themes
 chmod +x ~/github/polybar-themes/setup.sh
 cd ~/github/polybar-themes
@@ -74,8 +76,10 @@ bash -c "echo 1 | ./setup.sh"
 
 # Change timezone
 # To list timezones run: timedatectl list-timezones
+echo "Setting timezone to Europe/Madrid..."
 sudo timedatectl set-timezone "Europe/Madrid"
 
+echo "Setting up bspwm and polybar configuration..."
 mkdir ~/screenshots
 # copy all config files
 cp -rv $RPATH/configs/.config/* ~/.config/

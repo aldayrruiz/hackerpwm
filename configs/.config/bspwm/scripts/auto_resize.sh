@@ -8,7 +8,7 @@ OUTPUT="Virtual-1"
 xev -root -event randr | while read -r line; do
     if echo "$line" | grep -q "RRScreenChangeNotify"; then
         # Espera breve para evitar condiciones de carrera
-        sleep 3
+        sleep 1
 
         # Aplica resolución óptima
         xrandr --output "$OUTPUT" --auto
