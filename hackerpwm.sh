@@ -30,7 +30,7 @@ sleep 4
 RPATH=`pwd`
 
 # update and upgrade all
- sudo apt update && sudo apt -y full-upgrade
+sudo apt update && sudo apt -y full-upgrade
 
 # install packages 
 sudo apt install -y git vim feh scrot scrub zsh rofi xclip xsel locate fastfetch wmname acpi bspwm sxhkd unison \
@@ -46,12 +46,6 @@ sudo apt install -y cmake cmake-data pkg-config python3-sphinx libcairo2-dev lib
 libxcb-randr0-dev libxcb-composite0-dev python3-xcbgen xcb-proto libxcb-image0-dev libxcb-ewmh-dev \
 libxcb-icccm4-dev libxcb-xkb-dev libxcb-xrm-dev libxcb-cursor-dev libasound2-dev libpulse-dev libjsoncpp-dev \
 libmpdclient-dev libuv1-dev libnl-genl-3-dev
-
-# Install picom dependencies
-sudo apt install -y meson libxext-dev libxcb1-dev libxcb-damage0-dev libxcb-xfixes0-dev libxcb-shape0-dev \
-libxcb-render-util0-dev libxcb-render0-dev libxcb-composite0-dev libxcb-image0-dev libxcb-present-dev \
-libxcb-xinerama0-dev libpixman-1-dev libdbus-1-dev libconfig-dev libgl1-mesa-dev libpcre2-dev libevdev-dev \
-uthash-dev libev-dev libx11-xcb-dev libxcb-glx0-dev libpcre3 libpcre3-dev
 
 # install fonts
 mkdir /tmp/fonts
@@ -82,16 +76,16 @@ ln -s -f ~/.tmux/.tmux.conf ~/
 cp -v $RPATH/CONFIGS/tmux.conf.local ~/.tmux.conf.local
 
 # nvim
-wget https://github.com/neovim/neovim/releases/download/stable/nvim-linux64.tar.gz -O /tmp/nvim-linux64.tar.gz
-sudo tar xzvf /tmp/nvim-linux64.tar.gz --directory=/opt
-sudo ln -s /opt/nvim-linux64/bin/nvim /usr/bin/nvim
-sudo rm -f /opt/nvim-linux64.tar.gz
+#wget https://github.com/neovim/neovim/releases/download/stable/nvim-linux64.tar.gz -O /tmp/nvim-linux64.tar.gz
+#sudo tar xzvf /tmp/nvim-linux64.tar.gz --directory=/opt
+#sudo ln -s /opt/nvim-linux64/bin/nvim /usr/bin/nvim
+#sudo rm -f /opt/nvim-linux64.tar.gz
 
 #nvchad - needs work. Block cursor and user interaction
 # git clone https://github.com/NvChad/NvChad ~/.config/nvim --depth 1 && nvim
 
 # install kitty terminal
-cat $RPATH/kitty-installer.sh | sh /dev/stdin
+#cat $RPATH/kitty-installer.sh | sh /dev/stdin
 # ~/.local/kitty.app/bin/kitty
 
 # batcat
@@ -115,14 +109,7 @@ sudo make install
 git clone --depth=1 https://github.com/adi1090x/polybar-themes.git ~/github/polybar-themes
 chmod +x ~/github/polybar-themes/setup.sh
 cd ~/github/polybar-themes
-echo 1 | ./setup.sh
-
-# install picom
-cd ~/github/picom
-git submodule update --init --recursive
-meson --buildtype=release . build
-ninja -C build
-sudo ninja -C build install
+./setup.sh
 
 # Change timezone
 # To list timezones run: timedatectl list-timezones
@@ -148,22 +135,20 @@ chmod +x ~/.config/polybar/launch.sh
 chmod +x ~/.config/polybar/forest/scripts/target.sh
 chmod +x ~/.config/polybar/forest/scripts/screenshot.sh
 
+exit 0
 
+# Install picom dependencies
+sudo apt install -y libconfig-dev libdbus-1-dev libegl-dev libev-dev libgl-dev libepoxy-dev libpcre2-dev \
+libpixman-1-dev libx11-xcb-dev libxcb1-dev libxcb-composite0-dev libxcb-damage0-dev libxcb-glx0-dev libxcb-image0-dev \
+libxcb-present-dev libxcb-randr0-dev libxcb-render0-dev libxcb-render-util0-dev libxcb-shape0-dev libxcb-util-dev \
+libxcb-xfixes0-dev meson ninja-build uthash-dev
 
-# Select rofi theme
-#rofi-theme-selector
-
-# Enable tap to click and change mousepad scroll direction (laptops) https://cravencode.com/post/essentials/enable-tap-to-click-in-i3wm/
-#sudo mkdir -p /etc/X11/xorg.conf.d && sudo tee <<'EOF' /etc/X11/xorg.conf.d/90-touchpad.conf 1> /dev/null
-#Section "InputClass"
-#        Identifier "touchpad"
-#        MatchIsTouchpad "on"
-#        Driver "libinput"
-#        Option "Tapping" "on"
-#        Option "NaturalScrolling" "on"
-#EndSection
-#
-#EOF
+# install picom
+cd ~/github/picom
+git submodule update --init --recursive
+meson setup --buildtype=release build
+ninja -C build
+sudo ninja -C build install
 
 # Clean files
 rm -rf ~/github
