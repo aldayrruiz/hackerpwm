@@ -33,6 +33,9 @@ bspc config focus_follows_pointer true
 picom &
 
 # AUTO-RESIZE ON RESOLUTION CHANGE (VMWARE)
-~/.config/bspwm/auto_resize.sh &
+~/.config/bspwm/scripts/auto_resize.sh &
+
+# KEYBOARD LAYOUT ESPAÑOL
+setxkbmap es &
 
 xsetroot -cursor_name left_ptr &
