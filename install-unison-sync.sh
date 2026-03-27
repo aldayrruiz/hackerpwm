@@ -14,7 +14,7 @@ echo "=== Instalador de sincronización con Unison ==="
 echo ""
 
 # --- Pedir rutas al usuario ---
-read -p "Ruta 1 (ej: /home/kali/machines): " RUTA1
+read -p "Ruta 1 (ej: /root/machines): " RUTA1
 read -p "Ruta 2 (ej: /mnt/hgfs/shared/machines): " RUTA2
 
 # Crear carpeta de perfiles si no existe
