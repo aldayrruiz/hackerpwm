@@ -1,4 +1,4 @@
-# hackerpwm
+# kali-bspwm
 Deploy the best environment for Kali Linux.
 
 ![Desktop Environment](images/desktop.png)
