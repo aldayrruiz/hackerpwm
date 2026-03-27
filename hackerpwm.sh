@@ -52,15 +52,15 @@ font-manager -i /tmp/fonts/*.ttf
 #rm -f ~/.zshrc
 
 # install zsh-autocomplete?
-cp -v $RPATH/CONFIGS/zshrc ~/.zshrc
-cp -v $RPATH/CONFIGS/bash_aliases ~/.bash_aliases
+cp -v $RPATH/configs/.zshrc ~/.zshrc
+cp -v $RPATH/configs/.bash_aliases ~/.bash_aliases
 
 # .tmux
 echo "Installing tmux configuration..."
 rm -rf ~/.tmux
 git clone https://github.com/gpakosz/.tmux.git ~/.tmux
 ln -s -f ~/.tmux/.tmux.conf ~/
-cp -v $RPATH/CONFIGS/tmux.conf.local ~/.tmux.conf.local
+cp -v $RPATH/configs/.tmux.conf.local ~/.tmux.conf.local
 
 
 # nvchad - needs work. Block cursor and user interaction
@@ -70,7 +70,7 @@ cp -v $RPATH/CONFIGS/tmux.conf.local ~/.tmux.conf.local
 git clone --depth=1 https://github.com/adi1090x/polybar-themes.git ~/github/polybar-themes
 chmod +x ~/github/polybar-themes/setup.sh
 cd ~/github/polybar-themes
-echo 1 | ./setup.sh
+bash -c "echo 1 | ./setup.sh"
 
 # Change timezone
 # To list timezones run: timedatectl list-timezones
@@ -78,19 +78,21 @@ sudo timedatectl set-timezone "Europe/Madrid"
 
 mkdir ~/screenshots
 # copy all config files
-cp -rv $RPATH/CONFIGS/config/* ~/.config/
+cp -rv $RPATH/configs/.config/* ~/.config/
+cp -rv $RPATH/configs/home/* ~/
 
 # copy scripts
-cp -rv $RPATH/SCRIPTS/* ~/.config/polybar/forest/scripts/
+cp -rv $RPATH/scripts/* ~/.config/polybar/forest/scripts/
 sudo ln -s ~/.config/polybar/forest/scripts/target.sh /usr/bin/target
 sudo ln -s ~/.config/polybar/forest/scripts/screenshot.sh /usr/bin/screenshot
 
 # copy wallpapers
 mkdir ~/Wallpapers/
-cp -rv $RPATH/WALLPAPERS/* ~/Wallpapers/
+cp -rv $RPATH/wallpapers/* ~/Wallpapers/
 
 # Set execution perms
 chmod +x ~/.config/bspwm/bspwmrc
+chmod +x ~/.config/bspwm/scripts/auto_resize.sh
 chmod +x ~/.config/bspwm/scripts/bspwm_resize
 chmod +x ~/.config/polybar/launch.sh
 chmod +x ~/.config/polybar/forest/scripts/target.sh

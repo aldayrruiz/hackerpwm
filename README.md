@@ -48,4 +48,4 @@ Wallpaper is taken from ~/Wallpapers/wallpaper.*
 - Duf
 
 ## Credits
-* This repo is a fork of [repo](https://github.com/thegoodhackertv/hackerpwm), thank you ❤️. Since the repo is not updated and personally I experienced crashes when installing it, I decided to fork it and implement some new features.
+* This repo is a fork of [repo](https://github.com/thegoodhackertv/hackerpwm), thank you thegoodhackertv ❤️. Since the repo is not updated and personally I experienced crashes when installing it, I decided to fork it and implement some new features.
