@@ -52,10 +52,6 @@ font-manager -i /tmp/fonts/*.ttf
 #git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
 #rm -f ~/.zshrc
 
-echo "Installing zshrc and bash aliases..."
-cp -v $RPATH/configs/.zshrc ~/.zshrc
-cp -v $RPATH/configs/.bash_aliases ~/.bash_aliases
-
 # .tmux
 echo "Installing tmux configuration..."
 rm -rf ~/.tmux
@@ -82,8 +78,8 @@ sudo timedatectl set-timezone "Europe/Madrid"
 echo "Setting up bspwm and polybar configuration..."
 mkdir ~/screenshots
 # copy all config files
-cp -rv $RPATH/configs/.config/* ~/.config/
-cp -rv $RPATH/configs/home/.* ~/
+cp -rv $RPATH/.config/* ~/.config/
+cp -rv $RPATH/home/.* ~/
 
 # copy scripts
 cp -rv $RPATH/scripts/* ~/.config/polybar/forest/scripts/

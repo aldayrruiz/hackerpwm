@@ -47,7 +47,6 @@ Wallpaper is taken from ~/Wallpapers/wallpaper.*
 - Cmatrix
 - Duf
 
-
 ## Key shorcuts
 
 These are a few of key shorcuts, you can see more in `~/.config/sxhkd/sxhkdrc`
@@ -61,7 +60,11 @@ Windows + {number}         # Move to Desktop {number}
 Windows + Shift + {number} # Send window to Desktop {number}
 ```
 
+To set a target in polybar, you must execute the next command:
 
+```sh
+target 10.10.10.10
+```
 
 ## Troubleshoot
 
@@ -85,4 +88,4 @@ Xft.dpi: 120
 ```
 
 ## Credits
-* This repo is a fork of [repo](https://github.com/thegoodhackertv/hackerpwm), thank you thegoodhackertv ❤️. Since the repo is not updated and personally I experienced crashes when installing it, I decided to fork it and implement some new features.
+This repo is a fork of [repo](https://github.com/thegoodhackertv/hackerpwm), thank you thegoodhackertv ❤️. Since the repo is not updated and personally I experienced crashes when installing it, I decided to fork it and implement some new features.
