@@ -10,6 +10,10 @@ super + Return
 super + d
 	~/.config/polybar/forest/scripts/launcher.sh
 
+# power launcher
+super + x
+  ~/.config/polybar/forest/scripts/powermenu.sh
+
 # make sxhkd reload its configuration files:
 super + Escape
 	pkill -USR1 -x sxhkd
@@ -135,19 +139,6 @@ super + shift + f
 # BurpSuite
 super + shift + b
 	burpsuite
-
-###############
-# ScreenShots #
-###############
-
-@Print
-        screenshot select
-
-@Print + ctrl
-        screenshot
-
-@Print + alt
-        screenshot window
 
 # Volume
 #XF86AudioRaiseVolume

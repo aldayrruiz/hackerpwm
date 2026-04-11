@@ -1,0 +1,12 @@
+[Unit]
+Description=VMware Shared Folders
+After=network.target
+
+[Service]
+Type=forking
+ExecStart=/usr/bin/vmhgfs-fuse .host:/ /mnt/hgfs -o allow_other
+ExecStop=/bin/fusermount -u /mnt/hgfs
+Restart=always
+
+[Install]
+WantedBy=multi-user.target
