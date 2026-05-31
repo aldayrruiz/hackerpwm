@@ -80,7 +80,7 @@ sudo timedatectl set-timezone "Europe/Madrid"
 echo "Setting up bspwm and polybar configuration..."
 
 # copy all config files
-cp -rv $RPATH/.config/* ~/.config/
+cp -rv $RPATH/config/* ~/.config/
 cp -rv $RPATH/home/.* ~/
 sudo cp -rv $RPATH/etc/keyd/default.conf /etc/keyd/default.conf
 
@@ -90,7 +90,7 @@ sudo cp -v $RPATH/home/.p10k.zsh /root/.p10k.zsh
 sudo cp -rv $RPATH/home/.oh-my-zsh /root/.oh-my-zsh
 
 # install custom systemd services
-./systemd/install.sh
+sudo ./systemd/install.sh
 
 # copy scripts
 cp -rv $RPATH/scripts/* ~/.config/polybar/forest/scripts/

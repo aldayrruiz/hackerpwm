@@ -1,8 +1,8 @@
 #!/bin/bash
 
-cp ./vmhgfs.service  /etc/systemd/system/vmhgfs.service 
+sudo cp ./vmhgfs.service  /etc/systemd/system/vmhgfs.service
 
-mkdir -p /mnt/hgfs
+sudo mkdir -p /mnt/hgfs
 
 sudo systemctl daemon-reexec
 sudo systemctl daemon-reload
